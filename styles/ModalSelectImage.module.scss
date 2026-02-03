@@ -1,0 +1,36 @@
+// Arquivo criado: 26/01/2023 às 15:39
+
+@use 'variables.module' as *;
+@use 'utils.module' as *;
+
+.container {
+  @extend %cover-with-modal;
+  @extend %flex-center;
+}
+
+.modal {
+  width: 98%;
+  height: 90vh;
+  background-color: $bg-color;
+  padding: 20px;
+  border-radius: 10px;
+
+
+  &__header {
+    @extend %flex-between;
+
+    svg {
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+
+  &__body {
+    overflow: auto;
+    height: 95%;
+  }
+}

@@ -1,0 +1,32 @@
+@use './variables.module' as *;
+
+.button {
+  border: 0;
+  cursor: pointer;
+
+  &_1 {
+    background-color: $cor-principal;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 0;
+    transition: 0.4s;
+    width: 100%;
+
+    &:hover {
+      background-color: darken($cor-principal, 5%);
+    }
+  }
+
+  &_2 {
+    background-color: transparent;
+    border: 1px solid $cor-principal;
+    color: #ccc;
+    padding: 12px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $cor-principal;
+      color: white;
+    }
+  }
+}

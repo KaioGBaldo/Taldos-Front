@@ -1,0 +1,284 @@
+.barTopProfile {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+.pBarTop {
+  color: #111a21;
+  border: 3px solid #111a21;
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  font-size: 17px;
+  padding: 3px 10px;
+}
+
+.pBarTop {
+  right: 35px;
+  bottom: 10px;
+}
+
+.wrapImgAndP {
+  display: flex;
+  height: 100%;
+  margin-left: 30px;
+  align-items: flex-end;
+}
+
+.wrapImgAndP .pBarTop {
+  position: relative;
+  margin-left: 30px;
+  right: unset;
+}
+
+.imgUser {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #090f13;
+  margin-left: 50px;
+  position: relative;
+  top: 80px;
+}
+
+.imgReal {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imgUser div {
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sidesProfile:first-child {
+  border-right: 4px solid #ccc;
+}
+
+.sidesProfile {
+  width: 50%;
+  padding: 50px;
+}
+
+.profileFlex {
+  padding-top: 120px;
+  padding-bottom: 30px;
+  display: flex;
+}
+
+.boxSideProfile {
+  border: 3px solid blue;
+  padding: 10px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.missionProfileBox {
+  margin-top: 50px;
+  margin-left: 30px;
+  padding-bottom: 10px;
+}
+
+.boxNumberMission {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #090f13;
+}
+
+.boxNumberMission p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 17px;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.boxNumberMission p svg {
+
+  font-size: 17px;
+}
+
+.singleMission {
+  display: flex;
+  margin-top: 10px;
+}
+
+.singleMission h2 {
+  padding: 15px 0;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.lineHeigth {
+  width: 2px;
+  height: 12px;
+  background-color: #dc494c;
+  margin: 0 auto;
+  position: relative;
+  bottom: -30px;
+}
+
+.boxSideProfile h3 {
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.boxSideProfile>p {
+  margin-top: 10px;
+}
+
+.boxSideProfile p a {
+  color: white;
+}
+
+.titleSidesProfile {
+  font-size: 21px;
+  display: inline-block;
+  padding-right: 20px;
+  padding-left: 5px;
+  border-bottom: 3px solid blue;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.tutorials {
+  border: 3px solid blue;
+  margin: 10px 0;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  cursor: pointer;
+}
+
+.tutorials p {
+  font-size: 20px;
+}
+
+.youToo {
+  flex-direction: column;
+}
+
+.youToo h1 {
+  text-align: center;
+  font-size: 21px;
+  margin-top: 30px;
+  border-bottom: 3px solid blue;
+  display: inline-block;
+}
+
+.youToo h2 {
+  border: 3px solid blue;
+  margin: 15px 0;
+  padding: 12px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+@media(max-width: 1060px) {
+
+  .pBarTop {
+    display: none;
+  }
+
+  .wrapImgAndP {
+    margin: 0;
+  }
+
+  .imgUser {
+    margin: 0 auto;
+  }
+
+  .sidesProfile {
+    width: 100%;
+  }
+
+  .sidesProfile:first-child {
+    border-right: 0px solid #ccc;
+  }
+
+}
+
+@media(max-width: 580px) {
+
+  .boxSideProfile h3 {
+    font-size: 18px;
+    padding: 0 40px;
+  }
+
+  .singleMission h2 {
+    padding-left: 6px;
+    font-size: 16px;
+  }
+
+}
+
+@media(max-width: 480px) {
+
+  .singleMission {
+    position: relative;
+    left: -20px;
+  }
+
+  .singleMission h2 {
+    padding-left: 4px;
+    font-size: 14px;
+  }
+
+  .sidesProfile {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+@media(max-width: 380px) {
+
+  .sidesProfile {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .singleMission {
+    flex-direction: column;
+  }
+
+  .lineHeigth {
+    display: none;
+  }
+
+  .boxNumberMission {
+    margin: 0 auto;
+  }
+
+  .singleMission h2 {
+    margin-top: 0px;
+    position: relative;
+    top: -5px;
+    margin-bottom: 20px;
+  }
+
+  .boxSideProfile>p {
+    padding: 0 20px;
+  }
+
+  .boxSideProfile h3 {
+    font-size: 18px;
+    padding: 0px;
+  }
+
+}

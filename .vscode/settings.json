@@ -1,0 +1,6 @@
+{
+  "material-icon-theme.folders.associations": {
+    "styles": "sass"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

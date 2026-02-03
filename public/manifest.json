@@ -1,0 +1,22 @@
+{
+  "dir": "ltr",
+  "lang": "pt",
+  "name": "Taldo Bars",
+  "short_name": "Taldo Bars",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "/",
+  "background_color": "transparent",
+  "theme_color": "#111a21",
+  "description": "o RPG do seu jeito !",
+  "orientation": "any",
+  "related_applications": [],
+  "prefer_related_applications": true,
+  "icons": [
+    {
+      "src": "favicon512.png",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "url": "/"
+}

@@ -1,0 +1,29 @@
+// Arquivo criado: 28/01/2023 às 11:26
+
+@use 'variables.module' as *;
+// @use 'utils.module' as *;
+
+$radios: 2px;
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 2px solid $cor-principal;
+  border-radius: $radios;
+  padding: 3.5px 3px;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  transition: 0.6s;
+  border-radius: $radios;
+}
+
+.values {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

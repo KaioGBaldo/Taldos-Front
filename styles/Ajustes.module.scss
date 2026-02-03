@@ -1,0 +1,144 @@
+// Arquivo criado: 28/01/2023 às 00:18
+
+@use 'variables.module' as *;
+@use 'utils.module' as *;
+
+.container {
+  @extend %flex-between;
+  align-items: center;
+  margin-top: 50px;
+
+  &_single {
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+
+    &:first-child {
+      border-right: 2px solid $cor-principal;
+    }
+  }
+
+  &__espaco {
+    h2 {
+      font-size: 25px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    &_progressBar {
+      margin: 5px auto;
+      width: 100%;
+      max-width: 350px;
+      height: 35px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    &_button {
+      margin: 0 auto;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 200px;
+
+      button {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &__colors {
+    margin-top: 30px;
+
+    h2 {
+      font-size: 25px;
+      font-weight: normal;
+    }
+
+    &__content {
+      @extend %flex-center;
+      margin-top: 10px;
+
+      &__single {
+        $t: 40px;
+
+        width: $t;
+        height: $t;
+        border-radius: 50%;
+        margin: 0 7px;
+        cursor: pointer;
+
+        svg {
+          color: white;
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+
+  }
+
+  &__mensagens {
+    h2 {
+      font-weight: normal;
+      font-size: 25px;
+    }
+  }
+
+  &_tipeAccount {
+    margin: 20px 0;
+  }
+
+  &__agradecimentos {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    max-width: 420px;
+  }
+
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+
+    &_single {
+      width: 100%;
+      padding: 0;
+      border-right: none;
+      margin-bottom: 60px;
+
+      &:first-child {
+        border-right: none;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+
+    &__espaco {
+      &_progressBar {
+        max-width: 300px;
+      }
+    }
+
+    &__colors {
+      h2 {
+        font-size: 20px;
+      }
+
+      &__content {
+        &__single {
+          $t: 30px;
+          width: $t;
+          height: $t;
+
+          svg {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}

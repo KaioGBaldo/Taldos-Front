@@ -1,0 +1,45 @@
+.containerNot {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.avatarError {
+  width: 160px;
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.errorPrincipal {
+  display: flex;
+  justify-content: center;
+}
+
+.containerError {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  p,
+  h2 {
+    text-shadow: 2px 0 0 #0a0b15, -2px 0 0 #0a0b15, 0 2px 0 #0a0b15, 0 -2px 0 #0a0b15, 1px 1px #0a0b15, -1px -1px 0 #0a0b15, 1px -1px 0 #0a0b15, -1px 1px 0 #0a0b15;
+  }
+
+  h2 {
+    margin-top: 10px;
+    font-size: 35px;
+    padding: 0 10px;
+  }
+
+  p {
+    font-size: 22px;
+    line-height: 30px;
+    padding: 0 40px;
+  }
+}

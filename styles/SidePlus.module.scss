@@ -1,0 +1,22 @@
+// Arquivo criado: 30/12/2022 às 21:14
+
+@use 'variables.module' as *;
+@use 'utils.module' as *;
+
+.container {
+  @extend %flex-center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: $cor-principal;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  margin: 15px 25px;
+
+  svg {
+    color: $bg-color;
+    font-size: 25px;
+    cursor: pointer;
+  }
+}

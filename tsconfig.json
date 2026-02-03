@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/interfaces/*": ["interfaces/*"],
+      "@/lib/*": ["lib/*"],
+      "@/assets/*": ["public/assets/*"],
+      "@/audio/*": ["public/assets/audio/*"],
+      "@/ordem_paranormal/*": ["public/assets/ordem_paranormal/*"],
+      "@/api/*": ["pages/api/*"],
+    }
+  },
+  "include": [
+    "next-env.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx",
+    "**/*.js",
+  ],
+  "exclude": ["node_modules"]
+}
