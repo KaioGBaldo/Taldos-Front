@@ -1,5 +1,4 @@
 // Arquivo criado: 23/12/2022 às 00:57
-import { signIn } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -46,7 +45,7 @@ export const MenuFront = ({
         {
           login.isLogged
             ? ''
-            : <span className='menu-item' onClick={() => signIn('discord', { callbackUrl: '/h' })}><FaDiscord /> Discord</span>
+            : <span className='menu-item' onClick={() => route.push('/login')}><FaDiscord /> Discord</span>
         }
 
       </Menu>

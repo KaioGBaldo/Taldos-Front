@@ -1,5 +1,4 @@
 import scrollTo from '@/lib/frontEnd/scrollTo'
-import { signIn } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { BsDiscord } from 'react-icons/bs'
@@ -31,11 +30,11 @@ export const HeaderPage = ({
         {
           state
             ? <div className='part2-header-principal animate__animated animate__backInRight'>
-              <span onClick={() => signIn('discord', { callbackUrl: '/h' })} className='discord-login'><BsDiscord size={30} color='transparent' /></span>
+              <Link href="/h" className='discord-login'><FaHome size={30} /></Link>
               <Link style={{ borderColor: sass.corPrincipal, borderWidth: 1 }} className='button' href="/h">{d.meuPerfil}</Link>
             </div>
             : <div className='part2-header-principal animate__animated animate__backInRight'>
-              <span className='discord-login' onClick={() => signIn('discord', { callbackUrl: '/h' })}><BsDiscord size={30} /></span>
+              <span className='discord-login' onClick={() => navigate.push('/login')}><BsDiscord size={30} /></span>
               <Link style={{ borderColor: sass.corPrincipal, borderWidth: 1 }} className='button' href="/login">{d.login}</Link>
             </div>
         }
@@ -56,7 +55,7 @@ export const HeaderPage = ({
         <div className='part2-header-principal animate__animated animate__backInRight'>
           {
             !state
-              ? <span className='discord-login' onClick={() => signIn('discord', { callbackUrl: '/h' })}><BsDiscord size={30} /></span>
+              ? <span className='discord-login' onClick={() => navigate.push('/login')}><BsDiscord size={30} /></span>
               : <Link href="/h" className='discord-login'><FaHome size={30} /></Link>
           }
           <span

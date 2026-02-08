@@ -1,18 +1,19 @@
 // Arquivo criado: 27/12/2022 às 00:48
+import Loadings from '@/components/Loadings'
 import SetConquista from '@/lib/frontEnd/setConquista'
-import { signOut, useSession } from 'next-auth/react'
+import { getAuthUser, logoutUser } from '@/lib/frontEnd/auth'
+import { apoiaseLink } from '@/lib/frontEnd/vars'
+import { toggleLogar } from '@/reducers/loginSlice'
+import { setUser } from '@/reducers/userSlice'
 import styles from '@/styles/MenuH.module.scss'
+import sass from '../styles/variables.module.scss'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { push as Menu } from 'react-burger-menu'
 import { FaArrowLeft, FaDollarSign, FaFolder, FaGlobeAmericas, FaHome, FaMedal, FaPen, FaSignature, FaSignOutAlt, FaUserFriends } from 'react-icons/fa'
 import { GiGears } from 'react-icons/gi'
-import { useDispatch } from 'react-redux'
-import { setUser } from 'reducers/userSlice'
-import { apoiaseLink } from '../lib/frontEnd/vars'
-import sass from '../styles/variables.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
 import ActiveLink from './ActiveLink'
-import Loadings from '@/components/Loadings'
 
 export const MenuH = ({
   children,
@@ -22,52 +23,42 @@ export const MenuH = ({
   title = '',
   mesa = false
 }) => {
-
-  const { data: session } = useSession()
   const router = useRouter()
   const dispatch = useDispatch()
+  const userState = useSelector((state) => state.user)
   const [logged, setLogged] = useState(false)
-
-  // eu posso recuperar o valor da assinatura do usuário com o redux mas como eu não chamo o useSelector(redux) aqui e acabo
-  // pegando a informação pego backEnd aqui no useEffect. decidi criar um hook para informar se o usuário tem assinatura ou não
   const [hasAssinatura, setHasAssinatura] = useState(false)
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('/api/restricted')
-      const json = await res.json()
+    const authUser = getAuthUser()
 
-      if (json.ok) {
-        if (session) {
-          setLogged(true)
-          dispatch(setUser({
-            email: session.user.email,
-            foto: session.user.image,
-            nome: session.user.name,
-            token: session.accessToken,
-            assinatura: json.assinatura
-          }))
-          setHasAssinatura(json.assinatura)
-        }
-      } else {
-        setLogged(false)
-        router.isReady && router.push('/')
-      }
-
+    if (authUser) {
+      dispatch(setUser(authUser))
+      dispatch(toggleLogar(true))
+      setLogged(true)
+      setHasAssinatura(!!authUser.assinatura)
+    } else {
+      setLogged(false)
+      router.isReady && router.push('/login')
     }
-    fetchData()
-  }, [dispatch, router, session])
+  }, [dispatch, router])
 
   useEffect(() => {
     document.title = `Taldo Bar's - ${title}`
   }, [title])
 
   const handleSingOut = () => {
-    document.cookie = 'end=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-    document.cookie = 'int=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+    logoutUser()
+    dispatch(toggleLogar(false))
+    dispatch(setUser({
+      email: '',
+      foto: null,
+      nome: '',
+      token: null,
+      assinatura: false
+    }))
 
-    signOut({ callbackUrl: '/login' })
-
+    router.push('/login')
   }
 
   return (
@@ -117,7 +108,7 @@ export const MenuH = ({
           target="_blank"
           rel='noreferrer'
           className='menu-item'
-          onClick={() => SetConquista(22, session.user)}
+          onClick={() => SetConquista(22, userState)}
           href={apoiaseLink}
         >
           <FaDollarSign /> Nos Apoie

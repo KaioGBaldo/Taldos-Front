@@ -1,9 +1,17 @@
 // Arquivo criado: 19/01/2023 às 00:14
 import { tinyMceKey } from '@/lib/frontEnd/vars'
-import { Editor } from '@tinymce/tinymce-react'
 import { Emoji } from 'interfaces/emojis'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
+
+const Editor = dynamic(
+  () => import('@tinymce/tinymce-react').then((mod) => mod.Editor),
+  {
+    ssr: false,
+    loading: () => <p>Carregando editor...</p>
+  }
+)
 
 const MarkDownEditor = ({
   textAreaRef = null

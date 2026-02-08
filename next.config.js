@@ -9,6 +9,12 @@ const withPWA = require('next-pwa')({
 
 const nextConfig = {
   reactStrictMode: true,
+
+  poweredByHeader: false,
+  compress: true,
+  experimental: {
+    optimizePackageImports: ['react-icons', 'sweetalert2', '@tinymce/tinymce-react']
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
   },
