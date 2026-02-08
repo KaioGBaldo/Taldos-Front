@@ -25,15 +25,14 @@
       "@/lib/*": ["lib/*"],
       "@/assets/*": ["public/assets/*"],
       "@/audio/*": ["public/assets/audio/*"],
-      "@/ordem_paranormal/*": ["public/assets/ordem_paranormal/*"],
-      "@/api/*": ["pages/api/*"],
+      "@/ordem_paranormal/*": ["public/assets/ordem_paranormal/*"]
     }
   },
   "include": [
-    "next-env.d.ts", 
-    "**/*.ts", 
+    "next-env.d.ts",
+    "**/*.ts",
     "**/*.tsx",
-    "**/*.js",
+    "**/*.js"
   ],
   "exclude": ["node_modules"]
 }

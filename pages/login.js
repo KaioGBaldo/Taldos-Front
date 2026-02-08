@@ -13,10 +13,13 @@ import Loadings from '@/components/Loadings'
 import MenuFront from '@/components/MenuFront'
 import { recaptchaKey } from '@/lib/frontEnd/vars'
 import sass from '@/styles/variables.module.scss'
-import { signIn, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { loginWithProvider, isAuthenticated } from '@/lib/frontEnd/auth'
 import { createRef, useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setUser } from '@/reducers/userSlice'
+import { toggleLogar } from '@/reducers/loginSlice'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { BsDiscord, BsGoogle } from 'react-icons/bs'
 import { FaLock, FaUserAlt } from 'react-icons/fa'
@@ -28,7 +31,7 @@ import Swal from 'sweetalert2'
 export const Login = () => {
 
   const [verifying, setVerifying] = useState(true)
-  const { data: session } = useSession()
+  const dispatch = useDispatch()
 
   const form = useRef()
   const recaptchaRef = createRef()
@@ -50,13 +53,13 @@ export const Login = () => {
   }
 
   useEffect(() => {
-    if (session) {
+    if (isAuthenticated()) {
       setVerifying(true)
       router.isReady && router.push('/h')
-    } else if (session === null) {
+    } else {
       setVerifying(false)
     }
-  }, [router, session])
+  }, [router])
 
   const message = a => {
     a.preventDefault()
@@ -68,7 +71,12 @@ export const Login = () => {
     const recap = await recaptchaRef.current.executeAsync()
 
     if (recap !== null) {
-      signIn(type, { callbackUrl: '/h' })
+      const user = loginWithProvider(type)
+      if (user) {
+        dispatch(setUser(user))
+        dispatch(toggleLogar(true))
+      }
+      router.push('/h')
     }
 
   }
