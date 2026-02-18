@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Earth & Slate */
+  --color-brand-bg: #F8FAFC;      
+  --color-brand-surface: #F1F5F9; 
+  --color-brand-dark: #0F172A;    
+  --color-brand-accent: #B45309;  
+  --color-brand-muted: #475569;   
+}
+
+/* O @variant deve ficar FORA do @theme no Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* ESTILOS GLOBAIS */
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-dark);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Transição suave para quando o tema mudar */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Aplicação manual do fundo para garantir que o body mude */
+.dark body {
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand-bg);
+}
